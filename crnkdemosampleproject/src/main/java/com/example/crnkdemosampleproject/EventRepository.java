@@ -28,17 +28,17 @@ public class EventRepository extends ResourceRepositoryBase<EventEntity, Long> {
 	@Override
 	public synchronized <S extends EventEntity> S save(S event) {
 
-//		eventEntityService.createEvent(event);
 		List<AccomodationType> accomodationList = event.getAccomodationTypeList();
 
 		for (AccomodationType accomodationType : accomodationList) {
 			accomodationType.setEventEntity(event);
 		}
 		event.setAccomodationTypeList(accomodationList);
-		
-		
-
-		eventEntityService.createEvent(event);
+		if (eventEntityService.existsById(event.getId())) {
+			eventEntityService.createEvent(event);
+		} else {
+			eventEntityService.updateEvent(event);
+		}
 
 		return event;
 	}

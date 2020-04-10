@@ -17,17 +17,14 @@ public class EventEntityService {
 	}
 
 	public EventEntity createEvent(EventEntity event) {
-		
-		EventEntity eventone= event;
-	System.out.println(eventone.getAccomodationTypeList().size());
+
 		EventEntity eventEntity = eventEntityRepository.save(event);
 		return eventEntity;
 	}
 
 	public EventEntity updateEvent(EventEntity event) {
 
-//		eventEntityRepository.setEventById(event.getName(), event.getAddress(), event.getId());
-	
+		eventEntityRepository.setEventById(event.getName(), event.getAddress(), event.getId());
 
 		return event;
 	}
@@ -40,6 +37,11 @@ public class EventEntityService {
 	public EventEntity getEventByName(String eventName) {
 		EventEntity eventEntity = eventEntityRepository.findByName(eventName);
 		return eventEntity;
+	}
+
+	public boolean existsById(Long id) {
+
+		return eventEntityRepository.existsById(id);
 	}
 
 	public Optional<EventEntity> getById(Long id) {

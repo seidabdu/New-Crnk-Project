@@ -23,13 +23,13 @@ public class CrnkdemosampleprojectApplication implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... args) throws Exception {
-		final EventEntity eventOne = new EventEntity("WellsFargo");
-		List<AccomodationType> accomodationList = new ArrayList<>();
-		accomodationList.add(new AccomodationType("seid", eventOne));
-		accomodationList.add(new AccomodationType("mussie", eventOne));
-		eventOne.setAccomodationTypeList(accomodationList);
-		
-		eventEntityRepository.save(eventOne);
+//		final EventEntity eventOne = new EventEntity("WellsFargo");
+//		List<AccomodationType> accomodationList = new ArrayList<>();
+//		accomodationList.add(new AccomodationType("seid", eventOne));
+//		accomodationList.add(new AccomodationType("mussie", eventOne));
+//		eventOne.setAccomodationTypeList(accomodationList);
+//		
+//		eventEntityRepository.save(eventOne);
 	}
 
 }

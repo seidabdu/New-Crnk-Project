@@ -10,6 +10,6 @@ public interface EventEntityRepository extends JpaRepository<EventEntity, Long> 
 	public EventEntity findByName(String eventname);
 
 	@Modifying
-	@Query("update EventEntity e set e.name = ?1, e.address = ?2 where e.id = ?3")
+	@Query("update EventEntity e set e.name = :name, e.address = :address where e.id = :eventId")
 	public void setEventById(String name, String address, Long eventId);
 }

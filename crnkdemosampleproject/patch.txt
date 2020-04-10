@@ -1,0 +1,57 @@
+http://localhost:8183/events/46
+
+
+
+patch
+
+
+{
+  "data": {
+    "type": "events",
+    "attributes": {
+                "id": "46",
+                "address": "mrkrllr",
+                "name": "charlotte",
+                "accomodationTypeList": [
+                    {
+                        "id": 12,
+                        "name": "seid1111"
+                    }
+                ]
+            
+    }
+  }
+}
+
+
+
+
+post:
+
+http://localhost:8183/events
+
+{
+  "data": {
+    "type": "events",
+    "attributes": {
+    
+      "name": "charlotte",
+      "address": "AddisAbaba",
+      "accomodationTypeList": [
+                   {
+                  
+                    "name":"seid1111"
+                   }
+                   
+                ]
+    }
+  }
+}
+
+Get
+http://localhost:8183/events
+
+
+
+
+
