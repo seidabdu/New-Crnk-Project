@@ -1,6 +1,5 @@
 package com.example.crnkdemosampleproject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -12,14 +11,14 @@ import io.crnk.core.repository.ResourceRepositoryBase;
 import io.crnk.core.resource.list.ResourceList;
 
 @Component
-public class EventRepository extends ResourceRepositoryBase<Event, Long> {
+public class EventRepository extends ResourceRepositoryBase<EventEntity, Long> {
 
 	@Autowired
 	private EventEntityService eventEntityService;
 	private static final AtomicLong ID_GENERATOR = new AtomicLong(3);
 
 	public EventRepository() {
-		super(Event.class);
+		super(EventEntity.class);
 
 	}
 
@@ -29,7 +28,7 @@ public class EventRepository extends ResourceRepositoryBase<Event, Long> {
 	}
 
 	@Override
-	public synchronized <S extends Event> S save(S event) {
+	public synchronized <S extends EventEntity> S save(S event) {
 		if (event.getId() == null) {
 			event.setId(ID_GENERATOR.getAndIncrement());
 		}
@@ -51,16 +50,9 @@ public class EventRepository extends ResourceRepositoryBase<Event, Long> {
 	}
 
 	@Override
-	public synchronized ResourceList<Event> findAll(QuerySpec querySpec) {
+	public synchronized ResourceList<EventEntity> findAll(QuerySpec querySpec) {
 		List<EventEntity> listEvents = eventEntityService.getAllEvents();
-		List<Event> events = new ArrayList<>();
-		for (EventEntity element : listEvents) {
-			Event event = new Event();
-			event.setId(element.getId());
-			event.setName(element.getName());
-			event.setAddress(element.getAddress());
-			events.add(event);
-		}
-		return querySpec.apply(events);
+
+		return querySpec.apply(listEvents);
 	}
 }

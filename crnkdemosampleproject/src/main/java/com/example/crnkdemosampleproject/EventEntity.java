@@ -6,18 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.crnk.core.resource.annotations.JsonApiId;
+import io.crnk.core.resource.annotations.JsonApiResource;
+
 @Entity
 @Table(name = "Event")
+@JsonApiResource(type = "events")
 public class EventEntity {
-
+	@JsonApiId
 	@Id
 	@GeneratedValue
 	private Long id;
 
 	@Column
+	@JsonProperty
 	private String name;
 
 	@Column
+	@JsonProperty
 	private String address;
 
 	public EventEntity() {

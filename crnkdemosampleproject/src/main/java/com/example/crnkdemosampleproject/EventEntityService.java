@@ -21,7 +21,7 @@ public class EventEntityService {
 		return eventEntity;
 	}
 
-	public Event updateEvent(Event event) {
+	public EventEntity updateEvent(EventEntity event) {
 
 		eventEntityRepository.setEventById(event.getName(), event.getAddress(), event.getId());
 
