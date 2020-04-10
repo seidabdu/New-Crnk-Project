@@ -17,13 +17,17 @@ public class EventEntityService {
 	}
 
 	public EventEntity createEvent(EventEntity event) {
+		
+		EventEntity eventone= event;
+	System.out.println(eventone.getAccomodationTypeList().size());
 		EventEntity eventEntity = eventEntityRepository.save(event);
 		return eventEntity;
 	}
 
 	public EventEntity updateEvent(EventEntity event) {
 
-		eventEntityRepository.setEventById(event.getName(), event.getAddress(), event.getId());
+//		eventEntityRepository.setEventById(event.getName(), event.getAddress(), event.getId());
+	
 
 		return event;
 	}
