@@ -1,7 +1,8 @@
 package com.example.crnkdemosampleproject;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.transaction.Transactional;
 
@@ -30,6 +31,25 @@ public class CrnkdemosampleprojectApplication implements CommandLineRunner {
 //		eventOne.setAccomodationTypeList(accomodationList);
 //		
 //		eventEntityRepository.save(eventOne);
+		 LocalDate localDate = LocalDate.now();
+		 System.out.println("-------------------------   "+localDate.toString()+"--------------------------");
+		 LocalDateTime localDateTime = LocalDateTime.now();
+		 System.out.println("-------------------------   "+localDateTime.toString()+"--------------------------");
+		 
+		 
+		 
+		//Create formatter
+		 DateTimeFormatter FOMATTER = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+		          
+		 //Local date instance
+		 LocalDate localDateNEw = LocalDate.now();
+		  
+		 //Get formatted String
+		 String dateString = FOMATTER.format(localDateNEw);
+		  
+		 System.out.println(dateString);     //07/15/2018
+		 
+		 
 	}
 
 }

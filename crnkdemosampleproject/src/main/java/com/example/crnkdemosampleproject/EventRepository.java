@@ -34,11 +34,15 @@ public class EventRepository extends ResourceRepositoryBase<EventEntity, Long> {
 			accomodationType.setEventEntity(event);
 		}
 		event.setAccomodationTypeList(accomodationList);
-		if (eventEntityService.existsById(event.getId())) {
-			eventEntityService.createEvent(event);
-		} else {
-			eventEntityService.updateEvent(event);
-		}
+		
+		eventEntityService.createEvent(event);
+		
+		
+//		if (eventEntityService.existsById(event.getId())) {
+//			eventEntityService.createEvent(event);
+//		} else {
+//			eventEntityService.updateEvent(event);
+//		}
 
 		return event;
 	}

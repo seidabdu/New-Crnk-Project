@@ -28,7 +28,8 @@ public class AccomodationType {
 
 	@JsonApiId
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue
 	private Long id;
 	@JsonProperty
 	private String name;

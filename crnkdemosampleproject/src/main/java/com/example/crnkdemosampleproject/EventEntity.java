@@ -1,5 +1,8 @@
 package com.example.crnkdemosampleproject;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -7,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -30,12 +34,23 @@ public class EventEntity {
 
 	@JsonApiId
 	@Id
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@GeneratedValue
 	private Long id;
 
 	@Column
 	@JsonProperty
 	private String name;
+
+	@JsonProperty
+	private LocalDate createdDate;
+	
+	@JsonProperty
+	private LocalDateTime submittedTimeStamp;
+	
+	@JsonProperty
+	private Timestamp effectifeDate;
+	 
 
 	@Column
 	@JsonProperty
@@ -78,5 +93,32 @@ public class EventEntity {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public LocalDateTime getSubmittedTimeStamp() {
+		return submittedTimeStamp;
+	}
+
+	public void setSubmittedTimeStamp(LocalDateTime submittedTimeStamp) {
+		this.submittedTimeStamp = submittedTimeStamp;
+	}
+
+	public Timestamp getEffectifeDate() {
+		return effectifeDate;
+	}
+
+	public void setEffectifeDate(Timestamp effectifeDate) {
+		this.effectifeDate = effectifeDate;
+	}
+	
+	
+	
 
 }
